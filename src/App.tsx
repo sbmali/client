@@ -30,7 +30,7 @@ import {
   BlogPostEdit,
   BlogPostList,
   BlogPostShow,
-} from "pages/blog-posts";
+} from "pages/blog-post";
 import {
   CategoryCreate,
   CategoryEdit,
@@ -41,8 +41,8 @@ import { Login } from "pages/login";
 import { useTranslation } from "react-i18next";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import { parseJwt } from "utils/parse-jwt";
-import { Header } from "./components/header";
-import { ColorModeContextProvider } from "./contexts/color-mode";
+import { Header } from "./components/layout/header";
+import { ColorModeContextProvider } from "./contexts/index";
 
 const axiosInstance = axios.create();
 axiosInstance.interceptors.request.use((config) => {
@@ -191,7 +191,7 @@ function App() {
                         fallback={<CatchAllNavigate to="/login" />}
                       >
                         <ThemedLayoutV2
-                          Header={() => <Header isSticky={true} />}
+                          // Header={() => <Header isSticky={true} />}
                         >
                           <Outlet />
                         </ThemedLayoutV2>
